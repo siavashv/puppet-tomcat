@@ -9,6 +9,7 @@ class tomcat (
   $ulimits          = {},
 ) inherits ::tomcat::params {
 
+ 
   validate_re($version, '^[5-8]([\.0-9]+)?$')
   validate_bool($sources)
   validate_absolute_path($instance_basedir)
@@ -40,9 +41,10 @@ class tomcat (
   }
 
   create_resources('tomcat::ulimit', $ulimits)
+ 
 
-  class {'::tomcat::install': } ->
-  class {'::tomcat::user': } ->
-  Class['tomcat']
+ class {'::tomcat::user': } ->
+ class {'::tomcat::install': } ->
+ Class['tomcat']
 
 }
