@@ -4,6 +4,6 @@ class tomcat::user {
     uid    => $::tomcat::tomcat_uid,
     gid    => $::tomcat::tomcat_gid,
     system => true,
-    home   => $::tomcat::instance_basedir,
+    # home   => $::tomcat::instance_basedir,
   }
 }
